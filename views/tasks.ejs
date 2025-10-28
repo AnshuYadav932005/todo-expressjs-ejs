@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+</head>
+<body>
+    <h1>tasks</h1>
+    <!--now we have to check if our ejs file has the ejs parameter name tasks-->
+    <% if(tasks) { %>
+        <%if(tasks.length===0){%>
+            <p>No tasks yet.</p>
+         
+        <%}else{%>
+            <p><%= tasks.length %></p>  <!--using the = sign for rendering the data that is returned-->
+            <%for(task of tasks) {%>
+                <article>
+                    <form action="/tasks/<%=task.id%>" method="post" >
+                        <input id="completed<%=task.id%>" type="checkbox" <%= task.completed?'checked':'' %> onchange="this.form.submit()">
+                        <label for="completed<%=task.id%>"><%=task.title%></label>
+                    </form>
+                </article>
+            <%}%>
+        <%}%>
+    <%}%>
+</body>
+</html>
