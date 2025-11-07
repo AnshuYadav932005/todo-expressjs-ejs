@@ -17,8 +17,8 @@
             <%for(task of tasks) {%>
                 <article>
                     <form action="/tasks/<%=task.id%>" method="post" >
-                        <input id="completed<%=task.id%>" type="checkbox" <%= task.completed?'checked':'' %> onchange="this.form.submit()">
-                        <label for="completed<%=task.id%>"><%=task.title%></label>
+                        <input id="completed-<%=task.id%>" name="completed" type="checkbox" <%= task.completed?'checked':'' %> onchange="this.form.submit()">
+                        <label for="completed-<%=task.id%>"><%=task.title%></label>
                     </form>
                 </article>
             <%}%>

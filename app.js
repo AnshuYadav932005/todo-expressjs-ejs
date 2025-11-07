@@ -26,7 +26,11 @@ app.get('/',(req,res)=>{
         }
     ]
     res.render('tasks',{tasks});
-})
+});
+
+app.post(/tasks/:id,(req,res)){
+    
+}
 
 
 app.listen(port,()=>{
